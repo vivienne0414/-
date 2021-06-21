@@ -1,0 +1,21 @@
+import cv2
+import numpy as np
+
+from google.colab import files #匯入套件
+import pandas as pd
+upload = files.upload() #開啟上傳介面並載入
+
+#img = cv2.imread('lena.png')
+from google.colab.patches import cv2_imshow
+img_color = cv2.imread('lena.png', cv2.IMREAD_COLOR)
+
+#改變不同的color space
+img_hsv = cv2.cvtColor(img_color, cv2.COLOR_BGR2HSV)
+img_hls = cv2.cvtColor(img_color, cv2.COLOR_BGR2HLS)
+img_lab = cv2.cvtColor(img_color, cv2.COLOR_BGR2LAB)
+
+
+cv2_imshow(img_color)
+cv2_imshow(img_hsv)
+cv2_imshow(img_hls)
+cv2_imshow(img_lab) 
